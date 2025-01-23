@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const petshopController_1 = require("../controller/petshopController");
+const petController_1 = require("../controller/petController");
+const checkExistsUserAccount_1 = require("../middleware/checkExistsUserAccount");
+const petController_2 = require("../controller/petController");
+const petController_3 = require("../controller/petController");
+const router = (0, express_1.Router)();
+router.post("/petshop", petshopController_1.createPetshopController);
+router.get("/pets", checkExistsUserAccount_1.checkExistsUserAccount, petshopController_1.listPetsController);
+router.post("/pets", checkExistsUserAccount_1.checkExistsUserAccount, petController_1.createPetController);
+router.patch("/pets/:id/vaccinated", checkExistsUserAccount_1.checkExistsUserAccount, petController_2.updateVaccinatedStatus);
+router.delete("/pets/:id", checkExistsUserAccount_1.checkExistsUserAccount, petController_3.deletePet);
+exports.default = router;

@@ -1,0 +1,8 @@
+insominia
+
+POST: http://localhost:3333/petshop
+
+{
+  "name": "Petshop Feliz",
+  "cnpj": "12.345.678/0001-99"
+}
